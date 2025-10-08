@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---------- Brand Colors ---------- */
+  --color-primary: #000000;             /* Main Primary (Black) */
+  --color-primary-accent: #C972FF;      /* Accent Purple */
+
+  /* Secondary Palette */
+  --color-secondary: #6B15A1;           /* Deep Purple */
+  --color-secondary-alt: #006B61;       /* Teal Green */
+  --color-secondary-light: #60BAAE;     /* Mint Green */
+
+  /* ---------- Backgrounds ---------- */
+  --color-bgcolor: #FFFFFF;
+  --color-subbgcolor: #F5F5F5;
+  --color-secondarybgcolor: #E5E5E5;
+  --color-activecolor: #EDEDED;
+
+  /* ---------- Text Colors ---------- */
+  --color-text: #000000;
+  --color-headtext: #333333;
+  --color-subtext: #666666;
+  --color-highlight: #999999;
+
+  /* ---------- Borders ---------- */
+  --color-border: #B8B8B8;
+
+  /* ---------- Status ---------- */
+  --color-danger: #E53935;
+  --color-success: #2E7D32;
+  --color-warning: #F9A825;
+
+  /* ---------- Buttons ---------- */
+  --color-btn-primary: var(--color-primary);
+  --color-btn-primary-hover: var(--color-primary-accent);
+  --color-btn-secondary: var(--color-secondary);
+  --color-btn-secondary-hover: var(--color-secondary-light);
+
+  /* ---------- Typography ---------- */
+  --font-gilmer: 'Gilmer', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+}
+
+
+/* ---------------------------------------------
+   Gilmer Font Family
+--------------------------------------------- */
+@font-face {
+  font-family: 'Gilmer';
+  src: url('/src/assets/fonts/Gilmer/Gilmer-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gilmer';
+  src: url('/src/assets/fonts/Gilmer/Gilmer-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gilmer';
+  src: url('/src/assets/fonts/Gilmer/Gilmer-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gilmer';
+  src: url('/src/assets/fonts/Gilmer/Gilmer-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gilmer';
+  src: url('/src/assets/fonts/Gilmer/Gilmer-Heavy.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* ---------------------------------------------
+   Poppins Font Family
+--------------------------------------------- */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/src/assets/fonts/Poppins/Poppins-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/src/assets/fonts/Poppins/Poppins-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/src/assets/fonts/Poppins/Poppins-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/src/assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/src/assets/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/src/assets/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/src/assets/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/src/assets/fonts/Poppins/Poppins-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/src/assets/fonts/Poppins/Poppins-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+
+
+/* -------------------- SCROLLBAR STYLES -------------------- */
+/* Works for WebKit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary-accent, #c972ff);
+  /* 👈 use your theme primary */
+  border-radius: 9999px;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary-accent, #c972ff) transparent;
+}
+
+.prose {
+  color: inherit;
+  font-family: var(--font-poppins);
+}
+
+.prose strong {
+  color: var(--color-secondary);
+}
+
+.prose ul {
+  list-style-type: disc;
+  margin-left: 1.25rem;
+}
+
+.prose li {
+  margin-top: 0.25rem;
+}
+
+
+@layer components {
+  .input {
+    @apply w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#c972ff] transition;
+  }
+}

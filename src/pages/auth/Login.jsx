@@ -35,9 +35,13 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-200 px-4 py-10">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-primary-accent to-secondary px-4 py-10">
 
       {/* Top Center Logo */}
+     
+
+      {/* Login Form */}
+      <div className="w-full max-w-md bg-white shadow-lg rounded-2xl p-8">
       <div className="mb-10 flex justify-center">
         <img
           src="/4youngevity12.png"
@@ -45,11 +49,8 @@ export default function Login() {
           className="h-32 w-auto object-contain"
         />
       </div>
-
-      {/* Login Form */}
-      <div className="w-full max-w-md bg-white shadow-lg rounded-2xl p-8">
-        <h1 className="text-3xl font-gilmer text-primary-accent mb-6 text-center font-extrabold">
-          Login
+        <h1 className="text-3xl font-gilmer text-black mb-6 text-center font-extrabold ">
+        LOGIN
         </h1>
 
         <form className="space-y-5" onSubmit={handleSubmit}>

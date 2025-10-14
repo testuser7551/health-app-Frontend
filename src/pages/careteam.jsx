@@ -377,7 +377,7 @@ export default function CareTeam() {
   const renderContent = () => {
     if (activeTab === "Care Team") {
       return (
-        <div className="bg-white rounded-2xl p-4 sm:p-6 lg:p-8 shadow-md w-full max-w-full overflow-hidden">
+        <div className="bg-white rounded-2xl p-4 sm:p-6 lg:p-8 shadow-md w-full max-w-full overflow-hidden ">
           <h3 className="text-lg sm:text-xl font-semibold mb-4" style={{ fontFamily: "var(--font-gilmer)" }}>
             Your Care Team (1)
           </h3>
@@ -409,7 +409,7 @@ export default function CareTeam() {
                 </div>
               </div>
             </div>
-            <button className="text-red-500 hover:text-red-700 transition-colors flex-shrink-0 self-end xs:self-auto mt-2 xs:mt-0">
+            <button className="text-red-500 hover:text-red-700 transition-colors flex-shrink-0 self-end xs:self-auto mt-2 xs:mt-0 cursor-pointer">
               <Trash2 className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
@@ -459,7 +459,7 @@ export default function CareTeam() {
           <h2 className="text-lg sm:text-xl font-semibold mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4" style={{ fontFamily: "var(--font-gilmer)" }}>
             <span>Insurance Information</span>
             <button
-              className="px-4 py-2 rounded-full bg-primary-accent text-white text-sm hover:bg-opacity-90 transition w-full sm:w-auto"
+              className="px-4 py-2 rounded-full bg-primary-accent text-white text-sm hover:bg-opacity-90 transition w-full sm:w-auto cursor-pointer"
               onClick={() => {
                 setFormData({ carrier: "", policy: "", group: "", plan: "" });
                 setFormErrors({ carrier: "", policy: "", group: "", plan: "" });
@@ -482,13 +482,13 @@ export default function CareTeam() {
               </div>
               <div className="flex gap-3 items-center self-end sm:self-auto">
                 <button 
-                  className="text-blue-500 hover:text-blue-700"
+                  className="text-blue-500 hover:text-blue-700 cursor-pointer"
                   onClick={() => handleEditInsurance(insurance)}
                 >
                   <Pencil className="w-5 h-5" />
                 </button>
                 <button 
-                  className="text-red-500 hover:text-red-700"
+                  className="text-red-500 hover:text-red-700 cursor-pointer"
                   onClick={() => handleDeleteInsurance(insurance.id)}
                 >
                   <Trash2 className="w-5 h-5" />
@@ -508,7 +508,7 @@ export default function CareTeam() {
               <Calendar className="w-5 h-5" /> Appointments
             </span>
             <button
-              className="px-4 py-2 rounded-full bg-primary-accent text-white text-sm flex items-center gap-2 hover:opacity-90 transition w-full sm:w-auto"
+              className="px-4 py-2 rounded-full bg-primary-accent text-white text-sm flex items-center gap-2 hover:opacity-90 transition w-full sm:w-auto cursor-pointer"
               onClick={() => setShowAppointmentModal(true)}
             >
               <Plus className="w-4 h-4" /> Schedule Appointment
@@ -539,7 +539,7 @@ export default function CareTeam() {
                     )}
                   </div>
                   <button 
-                    className="text-red-500 hover:text-red-700 self-end sm:self-auto"
+                    className="text-red-500 hover:text-red-700 self-end sm:self-auto cursor-pointer"
                     onClick={() => handleDeleteAppointment(appointment.id)}
                   >
                     <Trash2 className="w-5 h-5" />
@@ -562,13 +562,13 @@ export default function CareTeam() {
             <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
               <button
                 onClick={handleShare}
-                className="flex items-center justify-center gap-1 bg-primary-accent text-white px-3 py-1.5 rounded-md hover:bg-secondary transition text-sm w-full sm:w-auto"
+                className="flex items-center justify-center gap-1 bg-primary-accent text-white px-3 py-1.5 rounded-md hover:bg-secondary transition text-sm w-full sm:w-auto cursor-pointer"
               >
                 <Share2 className="w-4 h-4" /> Share
               </button>
               <button 
                 onClick={handleRegenerateHistory}
-                className="flex items-center justify-center gap-1 bg-primary-accent text-white px-3 py-1.5 rounded-md hover:bg-secondary transition text-sm w-full sm:w-auto"
+                className="flex items-center justify-center gap-1 bg-primary-accent text-white px-3 py-1.5 rounded-md hover:bg-secondary transition text-sm w-full sm:w-auto cursor-pointer"
               >
                 <FileText className="w-4 h-4" /> Regenerate History
               </button>
@@ -621,15 +621,15 @@ export default function CareTeam() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-6 px-4">
+    <div className="min-h-screen bg-gradient-to-r from-primary-accent to-secondary py-6 px-4 overflow-x-hidden">
       <div className="max-w-7xl mx-auto space-y-6">
         <h1 className="text-3xl sm:text-4xl font-extrabold mb-6 px-2" style={{ fontFamily: "var(--font-gilmer)", color: "var(--color-primary)" }}>
           Care Coordination
         </h1>
 
         {/* ✅ Fixed Responsive Tabs - No horizontal scrolling */}
-        <div className="bg-white rounded-2xl shadow-md p-4 sm:p-6 mb-8 w-full max-w-full overflow-hidden">
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+        <div className="bg-white rounded-2xl shadow-md p-4 sm:p-6 mb-8 w-full max-w-full overflow-hidden ">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 ">
             {/* First line: Care Team and Insurance */}
             <div className="flex gap-2 sm:gap-4 flex-1">
               {["Care Team", "Insurance"].map((tab) => (
@@ -689,7 +689,7 @@ export default function CareTeam() {
                   </button>
                 )}
               </div>
-              <button className="flex items-center justify-center gap-2 px-4 sm:px-6 py-3 rounded-full bg-primary-accent text-white text-sm sm:text-base hover:bg-opacity-90 transition-colors w-full sm:w-auto mt-2 sm:mt-0">
+              <button className="flex items-center justify-center gap-2 px-4 sm:px-6 py-3 rounded-full bg-primary-accent text-white text-sm sm:text-base hover:bg-opacity-90 transition-colors w-full sm:w-auto mt-2 sm:mt-0 cursor-pointer">
                 <Search className="w-4 h-4 sm:w-5 sm:h-5" />
                 Search 
               </button>

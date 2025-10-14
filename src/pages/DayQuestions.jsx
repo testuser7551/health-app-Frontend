@@ -240,7 +240,7 @@ const DayQuestions = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4 sm:p-6 md:p-10">
+    <div className="min-h-screen bg-gradient-to-r from-primary-accent to-secondary p-4 sm:p-6 md:p-10">
       <div className="max-w-6xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">

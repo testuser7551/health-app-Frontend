@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { MessageCircle, Activity, Flame, Trophy,Star,Goal } from 'lucide-react'
+import { MessageCircle, Activity, Flame, Trophy, Star, Goal } from 'lucide-react'
 import { useNavigate } from "react-router-dom";
+import MetricModal from "./components/MetricModal";
 
 
-const stats = [
+const initialStats = [
   { name: "Blood Pressure", progress: 75 },
   { name: "Heart Rate", progress: 60 },
   { name: "Glucose", progress: 50 },
@@ -58,22 +59,39 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [openMetric, setOpenMetric] = useState(null);
+  const [stats, setStats] = useState(initialStats);
+
+  const handleSaveMetric = (metricName) => {
+    console.log("metricName",metricName);
+    // Slightly increase/decrease the progress randomly
+    setStats((prev) =>
+      prev.map((stat) =>
+        stat.name === metricName
+          ? { ...stat, progress: Math.min(100, stat.progress + Math.floor(Math.random() * 5 + 1)) } // add 1-5%
+          : stat
+      )
+    );
+    setOpenMetric(null); // Close modal
+  };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-6 px-4">
+    <div className="min-h-screen bg-gradient-to-r from-primary-accent to-secondary py-6 px-4">
       <div className="max-w-7xl mx-auto space-y-6">
-        {/* Page heading */}
-        <h1 className="font-gilmer font-extrabold text-5xl text-secondary text-center">Your Health Dashboard</h1>
+        <div className="w-full flex lg:flex-nowrap lg:justify-between flex-wrap justify-center gap-2">
+          {/* Page heading */}
+          <h2 className="font-gilmer font-extrabold text-5xl text-white text-center">Your Health Dashboard</h2>
 
-        {/* Two Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center ">
-          <button className="py-3 px-6 bg-gradient-to-r from-primary-accent to-secondary hover:bg-gradient-to-l text-white font-semibold rounded-lg shadow hover:scale-105 transition-transform duration-200 flex gap-2"
-          onClick={()=>navigate('/chat')}>
-            <MessageCircle size={20} />Ask Racheal
-          </button>
-          <button className="py-3 px-6 bg-gradient-to-r from-primary-accent to-secondary hover:bg-gradient-to-l text-white font-semibold rounded-lg shadow hover:scale-105 transition-transform duration-200 flex gap-2" onClick={()=>navigate('/programs')}>
-            <Activity size={20} />Continue Program
-          </button>
+          {/* Two Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center ">
+            <button className="items-center h-fit cursor-pointer py-3 px-6 bg-gradient-to-r from-white to-primary-accent hover:bg-gradient-to-l text-secondary font-semibold rounded-lg shadow hover:scale-105 transition-transform duration-200 flex gap-2"
+              onClick={() => navigate('/chat')}>
+              <MessageCircle size={20} />Ask Racheal
+            </button>
+            <button className="items-center h-fit py-3 px-6 bg-gradient-to-r from-white to-primary-accent hover:bg-gradient-to-l text-secondary font-semibold rounded-lg shadow hover:scale-105 transition-transform duration-200 flex gap-2" onClick={() => navigate('/programs')}>
+              <Activity size={20} />Continue Program
+            </button>
+          </div>
         </div>
         {/* Achievements Card */}
         <div className="bg-white rounded-2xl shadow-xl p-6 ">
@@ -109,6 +127,7 @@ export default function Dashboard() {
                 key={idx}
                 onMouseEnter={() => setHoveredCard(idx)}
                 onMouseLeave={() => setHoveredCard(null)}
+                onClick={() => setOpenMetric(stat.name)}
                 className={`flex flex-col items-center justify-center p-6 rounded-xl shadow-xl bg-white transition-transform ${hoveredCard === idx ? "scale-105" : ""
                   }`}
               >
@@ -118,6 +137,12 @@ export default function Dashboard() {
               </div>
             ))}
           </div>
+          <MetricModal
+            metric={openMetric}
+            open={!!openMetric}
+            onClose={() => setOpenMetric(null)}
+            onSave={() => handleSaveMetric(openMetric)}
+          />
         </div>
       </div>
     </div>

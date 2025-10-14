@@ -4,62 +4,16 @@
 export const programDays = [
   {
     day: 1,
-    title: "Wellness Program - Day 1",
+    title: "",
     description:
-      "Day 1 is your intake and assessment day. We'll collect your health info, lifestyle habits, and goals to create your personalized program.",
+      "No content for that day",
     askRachel: true,
     questions: [
       // STEP 1: Verification
-      { id: 1, type: "text", label: "Full Name" },
-      { id: 2, type: "text", label: "Date of Birth" },
-
-      // STEP 2: Readiness
-      { id: 3, type: "yes-no", label: "Do you have time to chat now?" },
-
-      // STEP 3: Program Agreement
-      { id: 4, type: "text", label: "Primary Care Doctor's Name" },
-      { id: 5, type: "text", label: "Primary Care Doctor's Location" },
-
-      // STEP 5: Health Measurements
-      { id: 6, type: "number", label: "Height (cm)" },
-      { id: 7, type: "number", label: "Weight (kg)" },
-      { id: 8, type: "number", label: "Waist measurement (cm, at belly button)" },
-      { id: 9, type: "yes-no", label: "High Blood Pressure?" },
-      { id: 10, type: "yes-no", label: "Taking BP Medications?" },
-
-      // STEP 6: Physical Activity
-      { id: 11, type: "yes-no", label: "Do you exercise regularly?" },
-      { id: 12, type: "text", label: "Exercise types (Walking / Treadmill / Bike / Swimming / Sports / Other)" },
-      { id: 13, type: "number", label: "Minutes per session" },
-      { id: 14, type: "number", label: "Days per week" },
-      { id: 15, type: "text", label: "Intensity (High / Moderate / Low)" },
-      { id: 16, type: "yes-no", label: "Do you do strength training?" },
-      { id: 17, type: "text", label: "Strength training types (Machines / Free Weights / Bodyweight / Other)" },
-      { id: 18, type: "number", label: "Strength sessions per week" },
-      { id: 19, type: "text", label: "Any physical limitations?" },
-
-      // STEP 7: Family Health History
-      { id: 20, type: "checkbox-group", label: "Family Health History", options: ["Heart disease", "High blood pressure", "Diabetes", "Breast cancer", "Osteoporosis", "Stroke", "Alzheimer’s disease", "Other cancers"] },
-
-      // STEP 8: Personal Health History
-      { id: 21, type: "checkbox-group", label: "Personal Health History", options: ["Heart disease or chest pain", "High cholesterol", "Diabetes", "Breast cancer", "Osteoporosis / Osteopenia", "Abnormal mammograms or pap tests", "Other cancers"] },
-
-      // STEP 9: Current Wellbeing Assessment
-      { id: 22, type: "checkbox-group", label: "Current Wellbeing Assessment", options: ["Lost interest in usual activities", "Feeling down or depressed", "Mood swings or low energy", "Trouble concentrating", "Excessive worry (health, finances, family)", "Feeling anxious or nervous", "Thoughts about moderating or stopping alcohol"] },
-
-      // STEP 10: Lifestyle Habits
-      { id: 23, type: "radio-group", label: "Tobacco Use", options: ["Never", "Former", "Current"] },
-      { id: 24, type: "number", label: "Years smoked (if current)" },
-      { id: 25, type: "yes-no", label: "Interested in quitting?" },
-      { id: 26, type: "radio-group", label: "Alcohol Consumption", options: ["None", "Light", "Moderate", "Heavy"] },
-      { id: 27, type: "number", label: "Hours of Sleep per night" },
-      { id: 28, type: "scale", label: "Stress Level (1–10)", min: 1, max: 10 },
-
-      // STEP 11: Goal Setting
-      { id: 29, type: "checkbox-group", label: "Wellness Goals", options: ["Lose weight", "Reduce waist size", "Feel more energetic", "Sleep better", "Manage menopause symptoms", "Improve mood", "Build strength", "Better relationships", "Increase confidence", "Other"] },
-      { id: 30, type: "text", label: "6 months from now" },
-      { id: 31, type: "text", label: "1 year from now" },
-      { id: 32, type: "text", label: "3 years from now" }
+      { id: 1, type: "scale", label: "Sleep(1–10)", min: 1, max: 10 },
+      { id: 2, type: "scale", label: "Mood(1–10)", min: 1, max: 10 },
+      { id: 3, type: "number", label: "Hot Flases-Count" },
+      { id: 4, type: "number", label: "Hydration (glasses)" },
     ],
 
     checklist: [
@@ -1324,47 +1278,47 @@ export const programDays = [
     ]
   },
   {
-    day: 21,
-    title: "Third Weekly Measurements - Day 21",
-    description: "This week, focus on tracking your weight, waist, steps, and meals to notice trends and stay consistent.",
-    educationalContent: "Tracking progress helps maintain motivation. Even small changes can be significant over time!",
-    askRachel: true,
-    questions: [
+    "day": 21,
+    "title": "Third Weekly Measurements - Day 21",
+    "description": "This week, focus on tracking your weight, waist, steps, and meals to notice trends and stay consistent.",
+    "educationalContent": "Tracking progress helps maintain motivation. Even small changes can be significant over time!",
+    "askRachel": true,
+    "questions": [
       {
-        id: 2101,
-        type: "group",
-        label: "Weekly Data Collection",
-        fields: [
-          { type: "number", label: "Weight (lbs or kg)" },
-          { type: "number", label: "Waist Measurement (inches or cm)" }
+        "id": 2101,
+        "type": "group",
+        "label": "Weekly Data Collection",
+        "fields": [
+          { "type": "number", "label": "Weight (lbs or kg)" },
+          { "type": "number", "label": "Waist Measurement (inches or cm)" }
         ],
-        suggestions: {
-          text: [
+        "suggestions": {
+          "text": [
             "Tracking your measurements weekly helps you see progress and make adjustments as needed.",
             "Even small improvements count — consistency matters most!"
           ]
         }
       },
       {
-        id: 2102,
-        type: "group",
-        label: "Physical Activity Summary",
-        fields: [
-          { type: "number", label: "Steps" },
-          { type: "text", label: "Other Exercise (include resistance exercises and cardio that makes you sweat)" }
+        "id": 2102,
+        "type": "group",
+        "label": "Physical Activity Summary",
+        "fields": [
+          { "type": "number", "label": "Steps" },
+          { "type": "text", "label": "Other Exercise (include resistance exercises and cardio that makes you sweat)" }
         ],
-        suggestions: {
-          text: [
+        "suggestions": {
+          "text": [
             "Regular movement improves energy and mood.",
             "Try to include both strength and cardio exercises each week."
           ]
         }
       },
       {
-        id: 2103,
-        type: "checkbox-group",
-        label: "Food Log for the Day",
-        options: [
+        "id": 2103,
+        "type": "checkbox-group",
+        "label": "Food Log for the Day",
+        "options": [
           "7:30 a.m. - List breakfast foods",
           "10:00 a.m. - List snacks",
           "12:30 p.m. - List lunch foods",
@@ -1373,23 +1327,23 @@ export const programDays = [
           "7:30 p.m. - List snacks",
           "7:35 p.m. - Kitchen is closed for the night"
         ],
-        suggestions: [
+        "suggestions": [
           "Keep a consistent eating schedule to support digestion and energy balance.",
           "Notice if late-night snacking affects your sleep or next-day energy."
         ]
       },
       {
-        id: 2104,
-        type: "single-choice",
-        label: "Daily Adherence Check",
-        options: [
+        "id": 2104,
+        "type": "single-choice",
+        "label": "Daily Adherence Check",
+        "options": [
           "Sending steps daily and meeting target",
           "Sending steps daily but not meeting target",
           "Not sending steps",
           "Sending food diary daily",
           "Not sending food diary daily"
         ],
-        suggestions: {
+        "suggestions": {
           "Sending steps daily and meeting target": [
             "Excellent work — consistency pays off! Keep it up and celebrate your effort."
           ],
@@ -1408,41 +1362,50 @@ export const programDays = [
         }
       },
       {
-        id: 2105,
-        type: "scale",
-        label: "How do you feel today? (1 = not great, 10 = great)",
-        min: 1,
-        max: 10,
-        suggestions: {
-          lowRange: [
+        "id": 2105,
+        "type": "scale",
+        "label": "How do you feel today? (1 = not great, 10 = great)",
+        "min": 1,
+        "max": 10,
+        "suggestions": {
+          "lowRange": [
             "Take a short walk or stretch break — small actions can boost your mood.",
             "Listen to music or call a friend to lift your energy today."
           ],
-          midRange: [
+          "midRange": [
             "You're doing well — keep your routines consistent and focus on hydration and rest."
           ],
-          highRange: [
+          "highRange": [
             "Keep up the positive momentum! Celebrate how good you’re feeling.",
             "Share your energy — positivity is contagious!"
           ]
         }
       },
       {
-        id: 2106,
-        type: "checkbox",
-        label: "Did you eat mindfully today?",
-        suggestions: {
-          checked: [
+        "id": 2106,
+        "type": "checkbox",
+        "label": "Did you eat mindfully today?",
+        "suggestions": {
+          "checked": [
             "Mindful eating supports digestion and helps you recognize fullness cues."
           ],
-          unchecked: [
+          "unchecked": [
             "Try one mindful meal tomorrow — pause, chew slowly, and enjoy the flavors."
           ]
         }
       }
+    ],
+    "checklist": [
+      "Drink at least 8 glasses of water",
+      "Complete daily steps or movement goal",
+      "Log all meals and snacks",
+      "Eat at least 3 servings of vegetables",
+      "Take a short stretching or walk break",
+      "Practice mindful eating at one meal",
+      "Reflect on weekly measurements and progress"
     ]
   }
-
+  
   ,
 
   {
@@ -1556,12 +1519,22 @@ export const programDays = [
           "no": ["Take a moment to reflect. It's okay — you can start next week."]
         }
       }
+    ],
+    "checklist": [
+      "Review starting and current measurements and reflect on changes",
+      "Check weekly step goals and physical activity consistency",
+      "Review your food diary and identify patterns or improvements",
+      "Celebrate at least one win or achievement from this week",
+      "Identify one challenge to address next week",
+      "Plan next week’s goals and schedule",
+      "Prepare for upcoming exercise or nutrition adjustments"
     ]
   }
+  
   ,
   {
     "day": 23,
-    "title": "Basic Check-in",
+    "title": "Basic Check-in - Day 23",
     "description": "A quick check-in to see how you did today with steps and food diary.",
     "educationalContent": "Daily tracking helps you stay consistent and accountable, even with small actions.",
     "askRachel": true,
@@ -1646,12 +1619,22 @@ export const programDays = [
           "text": ["Recording your steps and exercise helps track consistency and improvements over time."]
         }
       }
+    ],
+    "checklist": [
+      "Drink at least 8 glasses of water",
+      "Complete your step goal for today",
+      "Log all meals and snacks in your food diary",
+      "Engage in at least 10 minutes of other physical activity",
+      "Practice mindful eating at one meal",
+      "Reflect on any challenges and wins from today",
+      "Plan one small goal for tomorrow"
     ]
   }
+  
   ,
   {
     "day": 24,
-    "title": "Sodium & Restaurant Eating",
+    "title": "Sodium & Restaurant Eating - Day 24",
     "description": "Today we focus on sodium intake and eating out habits, including portion sizes and avoiding overly salted foods.",
     "educationalContent": "Reducing sodium improves heart health, lowers risk of stroke, helps with menopause symptoms, and improves overall well-being. Be mindful when eating out — sodium is often hidden in restaurant foods.",
     "askRachel": true,
@@ -1764,12 +1747,22 @@ export const programDays = [
           "unchecked": ["Excellent! Keep tracking your body's reactions to sodium."]
         }
       }
+    ],
+    "checklist": [
+      "Avoid the Five Food Felons today",
+      "Track sodium content of meals and snacks",
+      "Choose low-sodium options when eating out",
+      "Use herbs and spices instead of added salt",
+      "Cook fresh foods at home when possible",
+      "Monitor for swelling in hands or feet after meals",
+      "Reflect on strategies to reduce sodium for tomorrow"
     ]
   }
+  
   ,
   {
     "day": 25,
-    "title": "Enhanced Mood Check",
+    "title": "Enhanced Mood Check - Day 25",
     "description": "A daily check-in focusing on stress management, mood, and how your eating habits may affect your emotions.",
     "educationalContent": "Managing stress and tracking your mood helps maintain mental health and overall well-being. Small daily practices like quiet time or meditation can make a big difference.",
     "askRachel": true,
@@ -1873,12 +1866,22 @@ export const programDays = [
           "unchecked": ["Try another activity tomorrow to see what works best for you."]
         }
       }
+    ],
+    "checklist": [
+      "Take 10–15 minutes for quiet reflection or meditation",
+      "Engage in at least one stress-relieving activity (walk, music, laugh, or breathing exercises)",
+      "Monitor how eating habits affect your mood today",
+      "Notice stress levels and triggers",
+      "Take intentional breaks to recharge",
+      "Reflect on any improvements or changes in mood",
+      "Plan one small positive activity for tomorrow"
     ]
   }
+  
   ,
   {
     "day": 26,
-    "title": "Hot Flash Management Strategies",
+    "title": "Hot Flash Management Strategies - Day 26",
     "description": "Focus on managing hot flashes, improving sleep, and using stress management techniques.",
     "educationalContent": "Proper sleep, layering clothes, and diaphragmatic breathing can help you manage hot flashes and stress.",
     "askRachel": true,
@@ -1970,12 +1973,24 @@ export const programDays = [
         ],
         "suggestions": ["Identifying helpful activities makes it easier to repeat them daily."]
       }
+    ],
+    "checklist": [
+      "Layer clothing to help cool off during hot flashes",
+      "Avoid caffeine or alcohol in the afternoon/evening",
+      "Practice diaphragmatic or deep breathing at least once",
+      "Follow at least one sleep hygiene tip (no TV/phone in bed, wind down early, etc.)",
+      "Stay hydrated throughout the day",
+      "Track any hot flash triggers (foods, temperature, stress)",
+      "Engage in one relaxation activity such as meditation, walking, or reflection",
+      "Keep your bedroom cool and comfortable for better sleep",
+      "Reflect on what helped most today and plan to repeat it tomorrow"
     ]
   }
+  
   ,
   {
     "day": 27,
-    "title": "Bone Health Maintenance",
+    "title": "Bone Health Maintenance - Day 27",
     "description": "Focus on calcium, vitamin D, and strength training to maintain bone health.",
     "educationalContent": "Regular calcium, vitamin D, and strength training help maintain bone density and reduce risk of osteoporosis.",
     "askRachel": true,
@@ -7116,8 +7131,155 @@ export const programDays = [
       "Introduce a new healthy habit or small change in routine",
       "Maintain motivation and track progress consistently"
     ]
-  }
-  ,
+  },
+  {
+    day: 141,
+    title: "Weekly Food Review - Day 141",
+    description: "Review your food tracking for the week and reflect on reporting consistency.",
+    askRachel: true,
+    educationalContent: "Keeping a food diary helps you become aware of eating habits and makes it easier to manage portion sizes and avoid the Five Food Felons.",
+    questions: [
+      {
+        id: 14101,
+        type: "single-choice",
+        label: "Did you report your food today?",
+        options: ["Yes", "No"],
+        responses: {
+          "Yes": ["Great reporting! Talk to us again tomorrow!"],
+          "No": [
+            "We know it takes some time to write all this down, but think of it as premium self-care!",
+            "If you cannot remember everything you eat one day, at least write down most of it and send it along!"
+          ]
+        }
+      }
+    ],
+    checklist: [
+      "Log all meals and snacks for the day",
+      "Ensure all drinks and condiments are included",
+      "Reflect on patterns and food choices",
+      "Send your food log to the team"
+    ],
+    suggestions: [
+      "Use a notebook, phone app, or template to track your food consistently",
+      "Focus on accuracy over perfection",
+      "Remember, regular logging helps you spot trends and make better food choices"
+    ]
+  },
+  {
+    day: 142,
+    title: "Weekly Food Focus & Five Food Felons - Day 142",
+    description: "Focus on staying away from the Five Food Felons and reflect on your choices.",
+    askRachel: true,
+    educationalContent: "Avoiding the Five Food Felons is key to maintaining stable blood sugar and overall health. These include simple sugars, added syrups, stripped carbs, red or processed meats, and fried foods. One 12 oz can of regular soda contains almost as much sugar as most people should consume in 3 days!",
+    questions: [
+      {
+        id: 14201,
+        type: "single-choice",
+        label: "Did you stay away from the Five Food Felons today?",
+        options: ["Yes", "No"],
+        responses: {
+          "Yes": [
+            "BRAVO! You are doing great!",
+            "We knew we could count on you!",
+            "You make our lives so easy! Keep doing a great job!"
+          ],
+          "No": [
+            "You will feel better if you stay away from these felons!!",
+            "Keep trying. We know you are human!",
+            "We know you can do it! Try again tomorrow!"
+          ]
+        }
+      }
+    ],
+    checklist: [
+      "Avoid simple sugars (e.g., soda, candy)",
+      "Avoid added syrups",
+      "Avoid stripped carbohydrates",
+      "Avoid red or processed meats",
+      "Avoid fried foods",
+      "Reflect on which food felon is most difficult to avoid and strategize for next time"
+    ],
+    suggestions: [
+      "When thirsty, drink water, tea, or black coffee instead of soda",
+      "Plan healthy snacks ahead of time to prevent reaching for food felons",
+      "Keep track of small wins and challenges each day"
+    ]
+  },
+  {
+    day: 143,
+    title: "Weekly Mood Assessment - Day 143",
+    description: "Reflect on your mood, exercise, and eating habits this week. Practice stress management techniques as needed.",
+    askRachel: true,
+    educationalContent: "Exercise and healthy eating can positively impact your mood. Regular stress management practices, like quiet reflection and diaphragmatic breathing, are key tools to maintain emotional balance.",
+    questions: [
+      {
+        id: 14301,
+        type: "single-choice",
+        label: "Think about how your exercise has changed this week. Is it affecting your mood?",
+        options: ["Yes", "No"]
+      },
+      {
+        id: 14302,
+        type: "single-choice",
+        label: "Think about how your eating has changed this week. Is it affecting your mood?",
+        options: ["Yes", "No"]
+      },
+      {
+        id: 14303,
+        type: "single-choice",
+        label: "Did you take 15 minutes for quiet reflection this week?",
+        options: ["Yes", "No"],
+        responses: {
+          "Yes": ["GREAT JOB for pro-actively managing your mood!"],
+          "No": ["Please schedule to take time out for yourself in the next weeks."]
+        }
+      },
+      {
+        id: 14304,
+        type: "single-choice",
+        label: "Did you practice formal meditation or breathing exercises this week?",
+        options: ["Yes", "No"],
+        responses: {
+          "Yes": ["GREAT JOB for pro-actively managing your mood!"],
+          "No": ["Please schedule to take time out for yourself in the next weeks."]
+        }
+      },
+      {
+        id: 14305,
+        type: "single-choice",
+        label: "How do you feel today?",
+        options: ["A. I feel great today!", "B. I feel ok today.", "C. I do not feel great today"],
+        responses: {
+          "A. I feel great today!": [
+            "Keep feeling great! Way to go!",
+            "We feel great when you do! Keep smiling!",
+            "We are happy when you are happy. Thanks for making our day!"
+          ],
+          "B. I feel ok today.": [
+            "We want you to get from OK to great! Keep stepping and eating right. Practice a breathing exercise.",
+            "Add an extra 5 minutes of relaxation time. Let us know how you feel tomorrow.",
+            "Try to get an extra laugh in tomorrow. Call a friend or watch a comedy."
+          ],
+          "C. I do not feel great today": [
+            "We want you to get from OK to great! Keep stepping and eating right. Let us know how you are doing tomorrow.",
+            "Consider practicing the comprehensive stress management program with diaphragmatic breathing."
+          ]
+        }
+      }
+    ],
+    checklist: [
+      "Reflect on changes in exercise and eating habits and their impact on mood",
+      "Schedule 15 minutes of quiet reflection time",
+      "Practice formal meditation or breathing exercises",
+      "Use diaphragmatic breathing exercises if feeling low"
+    ],
+   
+    suggestions: [
+      "Practice deep breathing exercises daily, even without the device",
+      "Incorporate small laughter breaks or enjoyable activities to improve mood",
+      "Keep a brief journal of mood changes and triggers"
+    ]
+  },  
   {
     "day": 151,
     "title": "Weekly Menopause Reporting",
@@ -7199,6 +7361,222 @@ export const programDays = [
       }
     ],
     "checklist": true
+  },
+  {
+    day: 144,
+    title: "Weekly Menopause Reporting - Day 144",
+    description: "Track hot flashes, sleep, and stress management to improve menopausal symptoms and overall well-being.",
+    askRachel: true,
+    educationalContent: "Eating well, exercising, and sleeping sufficiently are key first steps to manage menopausal symptoms. Stress management, including diaphragmatic breathing, can help with mood and hot flash control.",
+    questions: [
+      {
+        id: 14401,
+        type: "single-choice",
+        label: "Are you experiencing hot flashes?",
+        options: [
+          "A. Yes, they are driving me crazy!",
+          "B. Yes, but they are tolerable.",
+          "C. No"
+        ],
+        responses: {
+          "A. Yes, they are driving me crazy!": [
+            "Think about when the hot flashes are bothering you most: night or day.",
+            "Ensure you are sleeping well. Aim for 7 hours of sleep each night.",
+            "Avoid working or checking emails/texts in bed to improve sleep."
+          ],
+          "B. Yes, but they are tolerable.": [
+            "Keep stepping and eating right. Let us know how you are doing tomorrow.",
+            "Add an extra 5 minutes of relaxation time or laughter breaks.",
+            "Practice a breathing exercise."
+          ],
+          "C. No": [
+            "Lucky you! Keep monitoring symptoms and maintaining healthy routines."
+          ]
+        }
+      },
+      {
+        id: 14402,
+        type: "informational",
+        label: "Vaginal dryness management",
+        content: [
+          "Use lubricants before intercourse to make relations more comfortable.",
+          "Non-hormonal vaginal moisturizers can also help.",
+          "DHEA suppositories may have long-term benefits – discuss with your physician.",
+          "Consider discussing hormone therapy with your doctor."
+        ]
+      },
+      {
+        id: 14403,
+        type: "checkbox-group",
+        label: "Diaphragmatic Breathing Exercise",
+        steps: [
+          "Positioning: Place a finger on your belly button.",
+          "Breathing: Inhale deeply through your nose, hold that breath, and take another breath on top. Exhale slowly.",
+          "Observation: Your belly button should move outward when using your diaphragm.",
+          "Equipment: Consider purchasing an inspiratory resistance training device ($19.95 on Amazon) to strengthen your diaphragm.",
+          "Routine: Use the device 10 times in the morning and 10 times in the evening before bed."
+        ]
+      }
+    ],
+    checklist: [
+      "Track hot flashes and note severity.",
+      "Ensure 7 hours of sleep nightly.",
+      "Practice diaphragmatic breathing exercises.",
+      "Consider strategies for vaginal dryness as needed."
+    ],
+    suggestions: [
+      "Maintain a balanced diet and regular exercise to help manage menopausal symptoms.",
+      "Schedule regular sleep routines.",
+      "Use stress management techniques daily."
+    ]
+  },
+  {
+    day: 145,
+    title: "Weekly Bone Health Reporting - Day 145",
+    description: "Track calcium, vitamin D, and strength training to support bone health.",
+    askRachel: true,
+    educationalContent: "Maintaining sufficient calcium, vitamin D, and magnesium intake, along with strength training, supports bone density and reduces osteoporosis risk.",
+    questions: [
+      {
+        id: 14501,
+        type: "single-choice",
+        label: "Calcium 1,200 mg today (half from supplements)?",
+        options: ["A. Yes", "B. Probably, at least got 600 mg from supplement", "C. No"],
+        responses: {
+          "A. Yes": ["Great job! Keep up your calcium intake."],
+          "B. Probably, at least got 600 mg from supplement": ["Good effort. Try to reach full recommended intake if possible."],
+          "C. No": ["Try to include calcium-rich foods or supplements to meet daily requirements."]
+        }
+      },
+      {
+        id: 14502,
+        type: "single-choice",
+        label: "Vitamin D2/3 with K2 1,000 units today?",
+        options: ["A. Yes", "B. No"],
+        responses: {
+          "A. Yes": ["Great job! Vitamin D supports calcium absorption and bone health."],
+          "B. No": ["Check the list of Vitamin D sources and try to include them in your diet this week."]
+        }
+      },
+      {
+        id: 14503,
+        type: "single-choice",
+        label: "Strength Training today?",
+        options: ["A. Yes", "B. No"],
+        responses: {
+          "A. Yes": ["Excellent! Strength training supports bone density."],
+          "B. No": ["Incorporate strength exercises like squats, lunges, or push-ups to maintain bone health."]
+        }
+      },
+      {
+        id: 14504,
+        type: "text",
+        label: "Magnesium Intake",
+        content: [
+          "Ensure adequate magnesium intake for bone health.",
+          "Dietary sources include pumpkin seeds, chia seeds, almonds, spinach, cashews, peanuts, shredded wheat, soymilk, black beans, edamame, peanut butter, baked potatoes, brown rice, yogurt, oatmeal, kidney beans, banana, salmon, milk, halibut, raisins, whole wheat bread, avocado.",
+          "Daily Value (DV) for magnesium: 420 mg for adults and children age 4+.",
+          "Focus on foods providing ≥20% DV for high magnesium content."
+        ]
+      }
+    ],
+    checklist: [
+      "Track calcium intake (diet + supplements).",
+      "Track vitamin D2/3 with K2 intake.",
+      "Complete strength training exercises.",
+      "Ensure adequate magnesium intake via diet or supplements."
+    ],
+    suggestions: [
+      "Combine dietary intake with supplements if needed to meet calcium, vitamin D, and magnesium requirements.",
+      "Incorporate daily strength exercises to support bone health.",
+      "Monitor progress weekly and adjust diet/exercise as necessary."
+    ]
+  },
+  {
+    day: 146,
+    title: "Weekly Measurements - Day 146",
+    description: "Record your weight, waist, steps, and food log for weekly tracking.",
+    askRachel: true,
+    educationalContent: "Tracking measurements helps you monitor progress and understand changes in body composition. Accurate recording allows for proper feedback and recommendations.",
+    checklist: [
+      "Record weight (lbs or kg)",
+      "Record waist measurement (inches or cm)",
+      "Track daily steps and other exercises (resistance or cardio)",
+      "Log all meals and snacks",
+      "Calculate absolute and percentage change in weight and waist compared to Week 4"
+    ],
+    questions: [
+      {
+        id: 14601,
+        type: "number",
+        label: "Enter your current weight (lbs or kg)"
+      },
+      {
+        id: 14602,
+        type: "number",
+        label: "Enter your current waist measurement (inches or cm)"
+      },
+      {
+        id: 14603,
+        type: "number",
+        label: "Enter your steps for this week"
+      },
+      {
+        id: 14604,
+        type: "text",
+        label: "Log your meals and snacks (7:30 a.m. - Breakfast, 10:00 a.m. - Snack, etc.)"
+      }
+    ],
+    suggestions: [
+      "Review daily activity and food logs to identify trends or areas for improvement."
+    ]
+  },
+  {
+    day: 147,
+    title: "Twenty-second Week Review - Day 147",
+    description: "Review weekly measurements, steps, and overall progress to adjust your habits and set new goals.",
+    askRachel: true,
+    checklist: [
+      "Compare current waist measurement with starting measurement",
+      "Compare current weight with starting weight",
+      "Assess if step goal was met (10,000 steps or 10% higher than Week 4)",
+      "Reflect on energy levels",
+      "Consider adding a new healthy food or changing your walking route"
+    ],
+    questions: [
+      {
+        id: 14701,
+        type: "single-choice",
+        label: "Did you meet your step goal today?",
+        options: ["Yes", "No"]
+      },
+      {
+        id: 14702,
+        type: "single-choice",
+        label: "Did you meet your step goal yesterday?",
+        options: ["Yes", "No"]
+      },
+      {
+        id: 14703,
+        type: "text",
+        label: "Any changes you want to make this week to improve energy or measurements?"
+      }
+    ],
+    responses: {
+      "Steps sent both today and prior day": [
+        "Thanks for sending your steps in. Keep it up, daily tracking is important!"
+      ],
+      "Steps sent on either today or prior day but NOT both": [
+        "Hey! Do you think we can succeed in your plan without you? I need your steps daily.",
+        "If you don't have a pedometer on your phone, you can order one at the app store.",
+        "Please send your steps for yesterday."
+      ]
+    },
+    suggestions: [
+      "Try a new healthy food or take a new route while walking to keep energy levels high.",
+      "Consider inviting a friend for a walk instead of lunch to stay active.",
+      "Adjust your weekly goals based on your measurements and energy levels."
+    ]
   },
   {
     "day": 153,

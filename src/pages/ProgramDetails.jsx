@@ -7,6 +7,9 @@ import { useSelector } from "react-redux";
 import { getProgramsById, enrollPrograms } from "../api/programs/programs"
 import Modal from "../components/Modal";
 
+import OnboardingModal from "./components/OnboardingModal";
+
+
 const iconMap = {
     Moon: Moon,
     Utensils: Utensils,
@@ -36,6 +39,13 @@ const ProgramDetails = () => {
     const [error, setError] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [modalStep, setModalStep] = useState(1);
+    const [open, setOpen] = useState(false);
+
+    useEffect(() => {
+        console.log("🧩 Modal open state changed:", open);
+    }, [open]);
+
+
     const [isSuccessOpen, setIsSuccessOpen] = useState(false);
 
     useEffect(() => {
@@ -83,8 +93,8 @@ const ProgramDetails = () => {
     const { currentProgram, enrolled, totalDays, completedDays, streak, currentDayToComplete, message } = programDetails;
 
     const handleDayClick = (dayNumber) => {
-        // console.log()
-        if (enroll &&(dayNumber == currentDayToComplete)) {
+                // console.log()
+        if (enrolled &&(dayNumber == currentDayToComplete)) {
             if (dayNumber === 1) {
                 setShowModal(true);
                 setModalStep(1);
@@ -92,13 +102,16 @@ const ProgramDetails = () => {
         } else {
             return;
         }
+
         // if (dayNumber === 1) {
-        //     setShowModal(true);
-        //     setModalStep(1);
+        //     console.log("✅ Opening onboarding modal for Day 1");
+        //     setOpen(true);
         // } else {
+        //     console.log("➡️ Navigating to Day:", dayNumber);
         //     navigate(`/programs/${currentProgram?._id}/day/${dayNumber}`);
         // }
-    }
+    };
+
     const handleEnrollClick = async () => {
         try {
             const data = await enrollPrograms({ programId: currentProgram?._id });
@@ -128,7 +141,7 @@ const ProgramDetails = () => {
     const percentage = totalDays > 0 ? Math.round((completedDays / totalDays) * 100) : 0;
 
     return (
-        <div className="min-h-screen bg-gray-100">
+        <div className="min-h-screen bg-gradient-to-r from-primary-accent to-secondary">
             {/* Sticky Header */}
             <div className="sticky top-0 bg-white shadow-xl p-5 flex items-center justify-between">
                 <div className="">
@@ -242,13 +255,13 @@ const ProgramDetails = () => {
                     </div>)}
 
                     {/* Calendar */}
-                    <div className="bg-gray-50 rounded-2xl shadow p-6 space-y-4">
+                    <div className="bg-gray-50 rounded-2xl shadow sm:p-6 space-y-4">
                         <h2 className="text-2xl font-bold text-black text-center">
                             Program Calendar ({totalDays} Days)
                         </h2>
-                        <div className="grid xl:grid-cols-7 md:grid-cols-4 sm:grid-cols-2 gap-2">
+                        <div className="grid xl:grid-cols-12 lg:grid-cols-8 md:grid-cols-5 sm:grid-cols-6 grid-cols-5 sm:gap-3">
                             {Array.from({ length: totalDays }).map((_, idx) => {
-                                let bgClass = "bg-gray-200 hover:bg-gray-300 text-gray-800";
+                                let bgClass = "bg-[#f1dbff] hover:bg-gray-300 text-gray-800";
 
                                 if (idx < completedDays) {
                                     // Already completed days
@@ -257,14 +270,36 @@ const ProgramDetails = () => {
                                     // Current day to complete
                                     bgClass = "bg-green-400 text-white";
                                 }
+                                const isCompleted = idx < completedDays;
+                                const isCurrent = idx + 1 === currentDayToComplete;
 
                                 return (
                                     <div
                                         key={idx}
                                         onClick={() => handleDayClick(idx + 1)}
-                                        className={`hover:scale-105 transition-transform duration-200 w-full h-20 rounded-md flex items-center justify-center text-md font-semibold cursor-pointer border-2 border-white ${bgClass}`}
+                                        className={`hover:scale-105 transition-transform duration-200 w-full h-10 sm:h-20 rounded-md flex items-center justify-center text-md font-semibold cursor-pointer border-2 border-white ${bgClass}`}
                                     >
-                                        {idx + 1}
+                                        {isCompleted || isCurrent ? (
+                                            // ✅ Show number for completed and current day
+                                            idx + 1
+                                        ) : (
+                                            // 🔒 Show lock icon for future days
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="15"
+                                                height="15"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                className="lucide lucide-lock"
+                                            >
+                                                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                            </svg>
+                                        )}
                                     </div>
                                 );
                             })}
@@ -272,81 +307,14 @@ const ProgramDetails = () => {
                     </div>
                 </div>
             </div>
-            <AnimatePresence>
-                {showModal && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 bg-black/50 bg-opacity-50 flex items-center justify-center z-50"
-                    >
-                        <motion.div
-                            initial={{ scale: 0.9, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.9, opacity: 0 }}
-                            className="bg-white rounded-2xl p-8 max-w-lg w-full shadow-2xl text-gray-800"
-                        >
-                            {modalStep === 1 && (
-                                <>
-                                    <h2 className="text-2xl font-bold mb-4 text-center uppercase">
-                                        {currentProgram.title} WELLNESS PROGRAM
-                                    </h2>
-                                    <h3 className="font-semibold mb-2">
-                                        Key Program Elements: The Five Food Felons (to avoid)
-                                    </h3>
-                                    <ul className="list-disc pl-6 space-y-1 text-gray-700">
-                                        <li>Red meat and processed red meat</li>
-                                        <li>Fried foods</li>
-                                        <li>Added sugar</li>
-                                        <li>Syrups</li>
-                                        <li>Simple carbs</li>
-                                    </ul>
-                                </>
-                            )}
+            
 
-                            {modalStep === 2 && (
-                                <>
-                                    <h3 className="text-xl font-semibold mb-3 text-center">
-                                        Daily Requirements
-                                    </h3>
-                                    <ul className="list-disc pl-6 space-y-1 text-gray-700">
-                                        <li>Daily step tracking and reporting</li>
-                                        <li>Daily food logging</li>
-                                        <li>Daily mood check-ins</li>
-                                        <li>Weekly measurements (weight and waist)</li>
-                                        <li>Supplement tracking (calcium, vitamin D, magnesium, vitamin K2)</li>
-                                        <li>Strength training reporting</li>
-                                    </ul>
-                                </>
-                            )}
+            {console.log("🧱 Rendering OnboardingModal:", open)}
+            {open && <OnboardingModal isOpen={open} onClose={() => setOpen(false)}
+            currentProgram={currentProgram} 
+            />}
 
-                            {modalStep === 3 && (
-                                <>
-                                    <h3 className="text-xl font-semibold mb-3 text-center">
-                                        Step Goal Adjustments
-                                    </h3>
-                                    <ul className="list-disc pl-6 space-y-1 text-gray-700">
-                                        <li>Under 4,000 steps → Goal 5,000–7,000 steps</li>
-                                        <li>4,000–6,000 steps → Goal 6,000–8,000 steps</li>
-                                        <li>6,000–8,000 steps → Goal 8,000–10,000 steps</li>
-                                        <li>8,000–10,000 steps → Goal 10,000–16,000 steps</li>
-                                        <li>10,000+ steps → Maintain 10,000+ (max 24,000)</li>
-                                    </ul>
-                                </>
-                            )}
 
-                            <div className="flex justify-end mt-8">
-                                <button
-                                    onClick={handleNext}
-                                    className="px-6 py-2 bg-gradient-to-r from-primary-accent to-secondary text-white font-semibold rounded-lg shadow hover:scale-105 transition-transform"
-                                >
-                                    {modalStep < 3 ? "Next" : "Start Day 1 →"}
-                                </button>
-                            </div>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
             {(isSuccessOpen && !error) && (
                 <Modal
                     isOpen={isSuccessOpen}

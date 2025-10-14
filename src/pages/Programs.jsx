@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { Heart, Moon, Utensils, Brain, Dumbbell, Smile, BatteryCharging, Activity, BookOpen, Globe, Target, Thermometer } from "lucide-react";
 import { getPrograms } from "../api/programs/programs"
 
-
 // export const wellnessData = [
 //     {
 //         id: 1,
@@ -120,7 +119,6 @@ import { getPrograms } from "../api/programs/programs"
 //     },
 // ];
 
-
 const iconMap = {
     Moon: Moon,
     Utensils: Utensils,
@@ -142,6 +140,7 @@ const Programs = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
         const fetchPrograms = async () => {
@@ -172,6 +171,20 @@ const Programs = () => {
         fetchPrograms();
     }, []);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            console.log("window.scrollY",window.scrollY );
+            if (window.scrollY > 50) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+        console.log("window.scrollY",window.scrollY );
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     if (loading) {
         return (
             <div className="min-h-screen flex items-center justify-center text-gray-500 text-xl">
@@ -188,14 +201,17 @@ const Programs = () => {
         );
     }
     return (
-        <div className="min-h-screen bg-gray-100 ">
-            <div className="sticky top-0 bg-white shadow-xl p-5 flex items-center justify-between">
+        <div className="min-h-screen bg-gradient-to-r from-primary-accent to-secondary ">
+            <div
+                className={`sticky top-0 p-5 flex items-center justify-between transition-all bg-white shadow-xl ${
+                    scrolled ? "bg-white shadow-xl" : "bg-transparent"
+                }`}
+            >
                 <div className="">
-                    <h1 className="md:text-4xl text-3xl font-gilmer font-bold text-secondary">
+                    <h1 className="md:text-4xl text-3xl font-gilmer font-bold text-black">
                         Wellness Programs
                     </h1>
                 </div>
-
             </div>
             <div className="max-w-7xl mx-auto space-y-6 py-6 px-4">
 

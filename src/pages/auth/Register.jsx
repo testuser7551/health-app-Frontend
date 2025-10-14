@@ -64,8 +64,11 @@ export default function Register() {
 
   return (
     <div className="min-h-screen">
-      <div className="flex items-center justify-center bg-gray-100 px-4 md:gap-15 gap-1 flex-wrap h-[1024px]">
+      <div className="flex items-center justify-center bg-gradient-to-r from-primary-accent to-secondary px-4 md:gap-15 gap-1 flex-wrap h-[1024px]">
         {/* Top Center Logo */}
+       
+        <div className="w-full max-w-md bg-white shadow-lg rounded-xl p-8">
+
         <div className="">
           <img
             src="/4youngevity12.png"
@@ -73,8 +76,7 @@ export default function Register() {
             className="h-32 w-auto object-contain"
           />
         </div>
-        <div className="w-full max-w-md bg-white shadow-lg rounded-xl p-8">
-          <h1 className="text-3xl font-gilmer text-primary-accent mb-6 text-center font-extrabold">
+          <h1 className="text-3xl font-gilmer text-black mb-6 text-center font-extrabold mt-10">
             Create Account
           </h1>
 

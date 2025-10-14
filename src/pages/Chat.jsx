@@ -4,7 +4,7 @@ import { generateGemini, summarizeGemini } from "../api/Chat/chat"; // ✅ impor
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-const MAX_HISTORY = 4;
+const MAX_HISTORY = 10;
 
 export default function Chat() {
   const [allMessages, setAllMessages] = useState([
@@ -17,6 +17,7 @@ export default function Chat() {
   const [tempMessages, setTempMessages] = useState([]); // ✅ Temporary memory for 5 messages
   const [input, setInput] = useState("");
   const messagesEndRef = useRef(null);
+  const [loading, setLoading] = useState(false);
 
   // ✅ Scroll to bottom when messages update
   const scrollToBottom = () => {
@@ -46,17 +47,22 @@ export default function Chat() {
   // ✅ Inside sendMessage:
   const sendMessage = async () => {
     if (!input.trim()) return;
-
+  
     const userMsg = { from: "user", text: input };
     const updatedAllMessages = [...allMessages, userMsg];
     const updatedTempMessages = [...tempMessages, userMsg];
     setInput("");
-
+  
     setAllMessages(updatedAllMessages);
     setTempMessages(updatedTempMessages);
-
+  
+    // ✅ Show loading
+    setLoading(true);
+    const loadingMsg = { from: "bot", text: "Rachel is typing..." };
+    setAllMessages((prev) => [...prev, loadingMsg]);
+  
     try {
-      // ✅ Build payload (prepend summary as system context if available)
+      // Build payload with summary if available
       const payloadMessages = [
         ...(conversationSummary
           ? [{ role: "model", text: conversationSummary }]
@@ -66,21 +72,24 @@ export default function Chat() {
           text: m.text
         }))
       ];
-
+  
       const res = await generateGemini({ messages: payloadMessages });
       const botReply = res.output || "Sorry, I couldn’t generate a response.";
-
-      const finalAllMessages = [...updatedAllMessages, { from: "bot", text: botReply }];
+  
+      // Replace loading message with actual bot reply
+      setAllMessages((prev) => [
+        ...prev.slice(0, -1),
+        { from: "bot", text: botReply }
+      ]);
+  
       const finalTempMessages = [...updatedTempMessages, { from: "bot", text: botReply }];
-
-      setAllMessages(finalAllMessages);
       setTempMessages(finalTempMessages);
-
-      // ✅ Summarize only internally (don’t add to UI)
+  
+      // Summarize and reset temp memory if needed
       if (finalTempMessages.length >= MAX_HISTORY) {
         const summary = await summarizeOldMessages(finalTempMessages);
-        setConversationSummary(summary); // store it silently
-        setTempMessages([]); // reset temp memory
+        setConversationSummary(summary);
+        setTempMessages([]);
       }
     } catch (error) {
       console.error("Gemini API Error:", error);
@@ -88,12 +97,15 @@ export default function Chat() {
         ...prev,
         { from: "bot", text: "Oops! Something went wrong. Please try again." }
       ]);
+    } finally {
+      setLoading(false); // ✅ Re-enable input & button
     }
   };
+  
 
 
   return (
-    <div className="min-h-screen bg-gray-100 py-6 px-4">
+    <div className="min-h-screen bg-gradient-to-r from-primary-accent to-secondary py-6 px-4">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
         <div className="mb-6 text-left">
@@ -101,16 +113,16 @@ export default function Chat() {
             className="text-2xl sm:text-3xl font-extrabold"
             style={{
               fontFamily: "var(--font-gilmer)",
-              color: "var(--color-secondary)"
+              color: "white"
             }}
           >
             Chat with Rachel
           </h1>
           <p
-            className="sm:text-gray-200"
+            className="sm:text-gray-200 "
             style={{
               fontFamily: "var(--font-poppins)",
-              color: "var(--color-primary)"
+              color: "white"
             }}
           >
             Your AI wellness assistant powered by Dr. Roizen's protocols
@@ -121,7 +133,7 @@ export default function Chat() {
         <div className="flex justify-center">
           <div className="w-full rounded-2xl overflow-hidden shadow-lg">
             {/* Messages */}
-            <div className="bg-white p-4 sm:p-6 md:p-8 h-[400px] sm:h-[500px] overflow-y-auto flex flex-col gap-4 sm:gap-6">
+            <div className="bg-white p-4 sm:p-6 md:p-8 h-[500px] sm:h-[650px] overflow-y-auto flex flex-col gap-4 sm:gap-6">
               {allMessages.map((msg, i) => (
                 <div
                   key={i}
@@ -155,20 +167,22 @@ export default function Chat() {
             </div>
 
             {/* Input */}
-            <div className="flex items-center p-4 sm:p-6 bg-white border-t border-gray-200 gap-3 sm:gap-4">
+            <div className="flex items-center p-4 sm:p-6 bg-gray-200 border-t border-gray-200 gap-3 sm:gap-4">
               {/* <button className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-primary-accent text-white">
                 <Link2 className="w-5 h-5 sm:w-6 sm:h-6" />
               </button> */}
               <input
                 type="text"
-                className="w-full flex-1 px-4 sm:px-6 py-3 sm:py-4 border rounded-full outline-none"
+                className="w-full flex-1 px-4 sm:px-6 py-3 sm:py-4 border rounded-full outline-none bg-white"
                 placeholder="Ask Rachel about your health..."
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+                disabled={loading}
               />
               <button
                 onClick={sendMessage}
+                disabled={loading}
                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-primary-accent text-white cursor-pointer hover:bg-secondary"
               >
                 <Send className="w-5 h-5 sm:w-6 sm:h-6" />

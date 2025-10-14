@@ -45,7 +45,7 @@ const MedicalInformation = () => {
         <Stethoscope size={18} className="text-black" /> Pre-existing Conditions
       </label>
 
-        <div className="flex gap-2 mt-2">
+        <div className="flex gap-2 mt-2 ">
           <input
             value={input.condition}
             onChange={(e) => setInput({ ...input, condition: e.target.value })}
@@ -54,7 +54,7 @@ const MedicalInformation = () => {
           />
           <button
             onClick={() => handleAdd("condition")}
-            className="bg-[#c972ff] text-white px-4 rounded-lg hover:bg-[#b75cf5]"
+            className="bg-[#c972ff] text-white px-4 rounded-lg hover:bg-[#b75cf5] cursor-pointer"
           >
             Add
           </button>
@@ -89,7 +89,7 @@ const MedicalInformation = () => {
           />
           <button
             onClick={() => handleAdd("medication")}
-            className="bg-[#c972ff] text-white px-4 rounded-lg hover:bg-[#b75cf5]"
+            className="bg-[#c972ff] text-white px-4 rounded-lg hover:bg-[#b75cf5] cursor-pointer"
           >
             Add
           </button>
@@ -124,7 +124,7 @@ const MedicalInformation = () => {
           />
           <button
             onClick={() => handleAdd("allergy")}
-            className="bg-[#c972ff] text-white px-4 rounded-lg hover:bg-[#b75cf5]"
+            className="bg-[#c972ff] text-white px-4 rounded-lg hover:bg-[#b75cf5] cursor-pointer"
           >
             Add
           </button>

@@ -139,7 +139,7 @@ const SmartReminders = () => {
       <div className="flex justify-end mb-4">
         <button 
           onClick={() => setIsModalOpen(true)} 
-          className="bg-[#c972ff] text-white px-4 py-2 rounded-lg hover:bg-[#b75cf5] transition-all duration-200"
+          className="bg-[#c972ff] text-white px-4 py-2 rounded-lg hover:bg-[#b75cf5] transition-all duration-200 cursor-pointer"
         >
           + Add Reminder
         </button>
@@ -173,7 +173,7 @@ const SmartReminders = () => {
             <div className="flex items-center gap-4 mt-3 sm:mt-0">
               <button 
                 onClick={() => handleToggleReminder(reminder.id)}
-                className="transition-all duration-200 hover:scale-110"
+                className="transition-all duration-200 hover:scale-110 cursor-pointer"
               >
                 {reminder.enabled ? (
                   <ToggleRight size={28} className="text-[#c972ff]" />
@@ -183,7 +183,7 @@ const SmartReminders = () => {
               </button>
               <button 
                 onClick={() => handleDeleteReminder(reminder.id)}
-                className="text-red-500 hover:text-red-700 transition-all duration-200 hover:scale-110"
+                className="text-red-500 hover:text-red-700 transition-all duration-200 hover:scale-110 cursor-pointer"
               >
                 <Trash2 size={20} />
               </button>

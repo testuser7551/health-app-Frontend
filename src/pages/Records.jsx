@@ -19,11 +19,11 @@ export default function Records() {
     fileInputRef.current.click();
   };
   return (
-    <div className="min-h-screen bg-gray-100 py-6 px-4">
+    <div className="min-h-screen bg-gradient-to-r from-primary-accent to-secondary py-6 px-4">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Title */}
-        <h1 className="md:text-4xl text-3xl font-bold text-secondary font-gilmer">Medical Records</h1>
-        <p className="md:text-md text-sm font-poppins text-gray-700">
+        <h1 className="md:text-4xl text-3xl font-bold text-white font-gilmer">Medical Records</h1>
+        <p className="md:text-md text-sm font-poppins text-white">
           Your medical records synced via TEFCA from Epic, Cerner, and Athena
           endpoints
         </p>

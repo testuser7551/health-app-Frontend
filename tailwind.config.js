@@ -10,6 +10,9 @@ export default {
         gilmer: ['Gilmer', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],
       },
+      colors: {
+        primary: '#d175ff',
+      },
     },
   },
   plugins: [],

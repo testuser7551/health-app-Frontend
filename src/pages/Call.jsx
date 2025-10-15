@@ -3,7 +3,7 @@ import { PhoneCall, PhoneOff } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 //import VoiceChat from "./VoiceChat";
 import VoiceChat from "./VoiceChat";
-import VoiceAnalyzer from "./VoiceAnalyzer";
+// import VoiceAnalyzer from "./VoiceAnalyzer";
 
 export default function Call() {
   const [isCalling, setIsCalling] = useState(false);

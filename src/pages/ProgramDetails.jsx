@@ -93,10 +93,12 @@ const ProgramDetails = () => {
     const { currentProgram, enrolled, totalDays, completedDays, streak, currentDayToComplete, message } = programDetails;
 
     const handleDayClick = (dayNumber) => {
-                // console.log()
+                // console.log("dayNumber",dayNumber);
+                // console.log("enrolled",enrolled);
+                // console.log("currentDayToComplete",currentDayToComplete);
         if (enrolled &&(dayNumber == currentDayToComplete)) {
             if (dayNumber === 1) {
-                setShowModal(true);
+                setOpen(true);
                 setModalStep(1);
             } else { navigate(`/programs/${currentProgram._id}/day/${dayNumber}`); }
         } else {

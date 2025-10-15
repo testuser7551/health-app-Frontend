@@ -26,6 +26,10 @@ export default function VoiceChat() {
   // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    const lastMessage = chatMessages[chatMessages.length - 1];
+    if (lastMessage?.from === "bot") {
+      speakText(lastMessage.text);
+    }
   }, [chatMessages]);
 
   // Initialize speech recognition

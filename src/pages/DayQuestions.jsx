@@ -78,6 +78,7 @@ const DayQuestions = () => {
       const data = await DayCompletion({ programId: id, day: currentDay.day });
 
       if (data.status == "Success") {
+        setError(null)
         setIsSuccessOpen(true)
         // setToast({
         //   type: "success",
@@ -244,7 +245,7 @@ const DayQuestions = () => {
       <div className="max-w-6xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-bold text-secondary">
+          <h1 className="text-3xl font-bold text-white">
             Day {currentDay.day} Questions
           </h1>
           <div className="flex gap-2">
@@ -462,12 +463,14 @@ const DayQuestions = () => {
         </div>
 
         {/* Complete Button */}
+        <div className="w-full flex justify-center">
         <button
           onClick={handleComplete}
-          className="w-full py-3 mt-4 bg-gradient-to-r from-primary-accent to-secondary text-white rounded-lg cursor-pointer text-lg font-semibold"
+          className="w-fit py-3 mt-4 bg-white text-secondary rounded-lg cursor-pointer text-lg font-semibold hover:scale-105 px-2"
         >
           Complete Day {currentDay.day}
         </button>
+        </div>
       </div>
 
       {/* Toast */}

@@ -36,7 +36,7 @@ const Onboarding = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8 bg-gray-200 transition-all duration-700">
+    <div className="flex flex-col items-center justify-center min-h-screen w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8 bg-gradient-to-r from-primary-accent to-secondary transition-all duration-700">
       <div className="bg-white backdrop-blur-md rounded-3xl w-full max-w-4xl mx-auto p-6 sm:p-8 md:p-12 text-center shadow-xl">
         {/* Animate Slide */}
         <AnimatePresence mode="wait">

@@ -4,10 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Activity, Flame, Trophy, Star, Goal, TrendingUp, Calendar, Heart, Moon, Utensils, Brain, Dumbbell, Smile, BatteryCharging, BookOpen, Globe, Target, Thermometer } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { getProgramsById, enrollPrograms } from "../api/programs/programs"
-import Modal from "../components/Modal";
+import { getProgramsById, enrollPrograms } from "../../../api/programs/programs"
+import Modal from "../../../components/Modal";
 
-import OnboardingModal from "./components/OnboardingModal";
+import OnboardingModal from "../ProgramOnboarding/OnboardingModal";
 
 
 const iconMap = {
@@ -24,6 +24,7 @@ const iconMap = {
     Target: Target,
     Thermometer: Thermometer,
 };
+
 const iconAchievement = [
     { icon: <Flame size={15} className="text-primary-accent" /> },
     { icon: <Goal size={15} className="text-yellow-500" /> },

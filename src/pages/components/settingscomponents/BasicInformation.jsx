@@ -1,33 +1,3 @@
-// import React from "react";
-// import { User } from "lucide-react";
-
-// const BasicInformation = () => {
-//   return (
-//     <div className="bg-white rounded-xl p-4 sm:p-6 mb-6">
-//       <h2 className="flex items-center gap-2 text-lg font-semibold mb-2">
-//         <User size={20} className="text-black" /> Basic Details
-//       </h2>
-//       <p className="text-sm text-gray-500 mb-4">Personal details from onboarding</p>
-
-//       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-//         <input className="input" placeholder="Full Name" />
-//         <input className="input" placeholder="Age" type="number" />
-//         <div className="flex gap-2">
-//           <input className="input w-1/2" placeholder="Height (ft)" type="number" />
-//           <input className="input w-1/2" placeholder="Height (in)" type="number" />
-//         </div>
-//         <input className="input" placeholder="Weight (lbs)" type="number" />
-//         <div className="sm:col-span-2">
-//           <input className="input w-full" placeholder="Location" />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default BasicInformation;
-
-
 import React, { useState } from "react";
 import { User } from "lucide-react";
 

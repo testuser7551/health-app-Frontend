@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Slide1 from "./Slides/Slide1";
-import Slide2 from "./Slides/Slide2";
-import Slide3 from "./Slides/Slide3";
-import Slide4 from "./Slides/Slide4";
-import Slide5 from "./Slides/Slide5";
-import Slide6 from "./Slides/Slide6";
-import Slide7 from "./Slides/Slide7";
-import Slide8 from "./Slides/Slide8";
-import Slide9 from "./Slides/Slide9";
-import Slide10 from "./Slides/Slide10";
+import Slide1 from "./SignupOnboardingSlides/Slide1";
+import Slide2 from "./SignupOnboardingSlides/Slide2";
+import Slide3 from "./SignupOnboardingSlides/Slide3";
+import Slide4 from "./SignupOnboardingSlides/Slide4";
+import Slide5 from "./SignupOnboardingSlides/Slide5";
+import Slide6 from "./SignupOnboardingSlides/Slide6";
+import Slide7 from "./SignupOnboardingSlides/Slide7";
+import Slide8 from "./SignupOnboardingSlides/Slide8";
+import Slide9 from "./SignupOnboardingSlides/Slide9";
+import Slide10 from "./SignupOnboardingSlides/Slide10";
 
 const slides = [
   { id: 1, component: <Slide1 />, cta: "Next →" },

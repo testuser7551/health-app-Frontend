@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { PhoneCall, PhoneOff } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 //import VoiceChat from "./VoiceChat";
-import VoiceChat from "./VoiceChat";
+import VoiceChat from "./components/LiveChat/VoiceChat";
 // import VoiceAnalyzer from "./VoiceAnalyzer";
 
 export default function Call() {

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Bot, Mic, MicOff, Send, Volume2, VolumeX } from "lucide-react";
-import { generateGemini } from "../api/Chat/chat"; // Your existing API
+import { generateGemini } from "../../../api/Chat/chat"; // Your existing API
 import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
 

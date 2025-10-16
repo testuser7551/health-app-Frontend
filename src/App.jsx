@@ -6,13 +6,13 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 import DashboardLayout from "./layouts/DashboardLayout";
 import Dashboard from "./pages/Dashboard";
 import Programs from "./pages/Programs";
-import ProgramDetails from "./pages/ProgramDetails";
+import ProgramDetails from "./pages/components/Programs/ProgramDetails";
 import Chat from "./pages/Chat";
 import Records from "./pages/Records";
-import DayQuestions from "./pages/DayQuestions";
+import DayQuestions from "./pages/components/Programs/DayQuestions";
 import ProtectedRoute from "./ProtectedRoutes";
 import Call from "./pages/Call";
-import Careteam from "./pages/careteam"
+import Careteam from "./pages/Careteam"
 import { getCurrentUser } from "./api/auth/auth"
 import { useDispatch } from "react-redux";
 import { setUser, logout } from "./redux/authSlice";

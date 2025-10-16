@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Toast from "../components/Toast";
-import { programDays } from "./Questions";
-import { DayCompletion, getProgramsById } from "../api/programs/programs";
-import Modal from "../components/Modal";
+import Toast from "../../../components/Toast";
+import { programDays } from "../../Data/Questions";
+import { DayCompletion, getProgramsById } from "../../../api/programs/programs";
+import Modal from "../../../components/Modal";
 
 const DayQuestions = () => {
   const { id, dayNumber } = useParams();

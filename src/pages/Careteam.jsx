@@ -228,9 +228,7 @@ export default function CareTeam() {
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
-
-
-  
+ 
   const handleShare = () => {
     const patientHistoryData = `Patient History Report\nGenerated: ${new Date().toLocaleDateString()}\n\nDemographics:\n- Age: 36\n- Height: 5'8"\n- Weight: 205 lbs\n\nVital Signs:\n- 2 metrics recorded\n\nMedications:\n- 0 listed\n\nAllergies:\n- 0 listed\n\nPayment History:\n${paymentHistory.map(p => `${p.date} - ${p.description} - ${p.amount}`).join('\n')}`;
     

@@ -7,7 +7,7 @@ const MedicalInformation = () => {
   const [allergies, setAllergies] = useState([]);
   const [input, setInput] = useState({ condition: "", allergy: "" });
 
-  // 💊 Dedicated Medication State (renamed)
+  // Dedicated Medication State (renamed)
   const [medicationInput, setMedicationInput] = useState("");
   const [selectedMedications, setSelectedMedications] = useState([]);
   const [isMedModalOpen, setIsMedModalOpen] = useState(false);
@@ -74,7 +74,7 @@ const MedicalInformation = () => {
           </button>
         </div>
 
-        <ul className="mt-2 space-y-1">
+        {/* <ul className="mt-2 space-y-1">
           {conditions.map((item, i) => (
             <li
               key={i}
@@ -89,10 +89,26 @@ const MedicalInformation = () => {
               </button>
             </li>
           ))}
-        </ul>
+        </ul> */}
+        <ul className="mt-2 grid grid-cols-1 lg:grid-cols-2 gap-2">
+  {conditions.map((item, i) => (
+    <li
+      key={i}
+      className="flex justify-between items-center bg-white rounded-lg p-2 shadow-sm border w-full"
+    >
+      <span className="truncate">{item}</span>
+      <button
+        onClick={() => handleRemove("condition", i)}
+        className="text-red-500 hover:text-red-700 transition cursor-pointer"
+      >
+          <Trash2 size={18} />
+      </button>
+    </li>
+  ))}
+</ul>
+
       </div>
 
-      {/* 💊 Current Medications */}
       <div className="mb-4">
         <label className="flex items-center gap-2 font-medium text-gray-700">
           <Pill size={18} className="text-black" /> Current Medications
@@ -105,32 +121,32 @@ const MedicalInformation = () => {
             placeholder="Add medication (e.g., Metformin 500mg)"
             className="input flex-grow"
           />
-          <button
+          {/* <button
             onClick={handleAddMedication}
             className="bg-[#c972ff] text-white px-4 rounded-lg hover:bg-[#b75cf5]"
           >
             Add
-          </button>
+          </button> */}
           <button
             onClick={() => setIsMedModalOpen(true)}
-            className="bg-[#c972ff] text-white px-4 rounded-lg hover:bg-[#b75cf5]"
+            className="bg-[#c972ff] text-white px-4 rounded-lg hover:bg-[#b75cf5] cursor-pointer"
           >
-            Select
+            Add
           </button>
         </div>
 
         {/* Selected Medications List */}
         {selectedMedications.length > 0 && (
-          <ul className="mt-4 space-y-2">
+          <ul className="mt-2 grid grid-cols-1 lg:grid-cols-2 gap-2">
             {selectedMedications.map((item, i) => (
               <li
                 key={i}
-                className="flex justify-between items-center bg-gray-50 rounded-lg p-2 shadow-sm border"
+                className="flex justify-between items-center bg-white rounded-lg p-2 shadow-sm border w-full"
               >
                 <span className="text-gray-800">{item}</span>
                 <button
                   onClick={() => handleRemoveMedication(i)}
-                  className="text-red-500 hover:text-red-700 transition"
+                  className="text-red-500 hover:text-red-700 transition cursor-pointer"
                 >
                   <Trash2 size={18} />
                 </button>
@@ -163,18 +179,18 @@ const MedicalInformation = () => {
           </button>
         </div>
 
-        <ul className="mt-2 space-y-1">
+        <ul className="mt-2 grid grid-cols-1 lg:grid-cols-2 gap-2">
           {allergies.map((item, i) => (
             <li
               key={i}
-              className="flex justify-between items-center bg-white rounded-lg p-2 shadow-sm"
+              className="flex justify-between items-center bg-white rounded-lg p-2 shadow-sm border w-full"
             >
               <span>{item}</span>
               <button
                 onClick={() => handleRemove("allergy", i)}
-                className="text-red-500 text-sm font-semibold"
+                className="text-red-500 hover:text-red-700 transition cursor-pointer"
               >
-                ✕
+                 <Trash2 size={18} />
               </button>
             </li>
           ))}

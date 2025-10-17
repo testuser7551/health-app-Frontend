@@ -39,7 +39,7 @@ const HealthProfile = () => {
     e.preventDefault();
     if (validateForm()) {
       console.log("Form submitted:", formData);
-      alert("✅ Health Profile saved successfully!");
+      alert("Health Profile saved successfully!");
       setErrors({});
     }
   };
@@ -50,7 +50,7 @@ const HealthProfile = () => {
         <User size={20} className="text-black" /> Health Profile & Goals
       </h2>
       <p className="text-xs sm:text-sm md:text-base text-gray-500 mb-6">
-        Your onboarding answers – update anytime
+        Your onboarding answers - update anytime
       </p>
 
       <form onSubmit={handleSubmit} className="flex flex-col space-y-5">

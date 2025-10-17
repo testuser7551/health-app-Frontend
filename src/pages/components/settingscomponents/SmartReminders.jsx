@@ -1,71 +1,8 @@
-// import React from "react";
-// import { Trash2, ToggleLeft, ToggleRight,Bell } from "lucide-react";
-// import { useState } from "react";
-// import ReminderModal from './Remindermodal';
-
-// const SmartReminders = () => {
-//   const [enabled, setEnabled] = useState(true);
-//   const [isModalOpen, setIsModalOpen] = useState(false);
-
-//   const handleCreateReminder = (reminderData) => {
-//     console.log('Reminder created:', reminderData);
-//     // Handle the reminder data here
-//   };
-//   return (
-//     <div className="bg-white rounded-xl p-4 sm:p-6">
-//       <h2 className="flex items-center gap-2 text-lg font-semibold mb-2">
-//         <Bell size={20} className="text-black" /> Smart Reminders
-//       </h2>
-
-//       <p className="text-sm text-gray-500 mb-4">
-//         Set up automatic reminders for health tracking and activities
-//       </p>
-
-//       <div className="flex justify-end mb-4">
-//         <button onClick={() => setIsModalOpen(true)} className="bg-[#c972ff] text-white px-4 py-2 rounded-lg hover:bg-[#b75cf5]">
-//           + Add Reminder
-//         </button>
-//         <ReminderModal
-//         isOpen={isModalOpen}
-//         onClose={() => setIsModalOpen(false)}
-//         onSubmit={handleCreateReminder}
-//       />
-//       </div>
-
-//       <div className="bg-white p-4 rounded-lg shadow flex flex-col sm:flex-row sm:items-center sm:justify-between">
-//         <div>
-//           <h3 className="font-semibold">My custom reminder</h3>
-//           <p className="text-sm text-gray-600">Testing the reminder system</p>
-//           <p className="text-xs text-gray-500">09:00 AM | Sun–Sat</p>
-//         </div>
-
-//       <div className="flex items-center gap-4 mt-3 sm:mt-0">
-//         <button onClick={() => setEnabled(!enabled)}>
-//           {enabled ? (
-//             <ToggleRight size={28} className="text-[#c972ff]" />
-//           ) : (
-//             <ToggleLeft size={28} className="text-gray-400" />
-//           )}
-//         </button>
-//         <button className="text-red-500 hover:text-red-700">
-//           <Trash2 size={20} />
-//         </button>
-//       </div>
-
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default SmartReminders;
-
-
-
-
 import React from "react";
 import { Trash2, ToggleLeft, ToggleRight, Bell } from "lucide-react";
 import { useState } from "react";
 import ReminderModal from './Remindermodal';
+
 
 const SmartReminders = () => {
   const [enabled, setEnabled] = useState(true);

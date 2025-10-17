@@ -10,6 +10,7 @@ import ProgramDetails from "./pages/components/Programs/ProgramDetails";
 import Chat from "./pages/Chat";
 import Records from "./pages/Records";
 import DayQuestions from "./pages/components/Programs/DayQuestions";
+import HealthInsights from "./pages/insights/HealthInsights";
 import ProtectedRoute from "./ProtectedRoutes";
 import Call from "./pages/Call";
 import Careteam from "./pages/Careteam"
@@ -62,6 +63,7 @@ function App() {
           <Route path="call" element={<Call />} />
           <Route path="careteam" element={<Careteam />} />
           <Route path="settings" element ={<Settings/>}/>
+          <Route path="insights" element ={<HealthInsights/>}/>
           
         </Route>
 
